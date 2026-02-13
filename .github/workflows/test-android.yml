@@ -1,8 +1,6 @@
-name: Test Android Build
+name: Test Android Build + Submit
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -19,21 +17,23 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build Android (no submit)
+      - name: Build + Submit Android
         uses: ashleigh-hopkins/app-build@main
         with:
           platform: android
           profile: production
-          submit: 'false'
+          submit: 'true'
           version-bump: 'true'
+          version-strategy: 'git-commit-count'
           cache: 'false'
           android-keystore: ${{ secrets.ANDROID_KEYSTORE }}
           android-keystore-password: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           android-key-alias: ${{ secrets.ANDROID_KEY_ALIAS }}
           android-key-password: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          google-play-service-account: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT }}
 
       - name: Verify build output
         run: |
-          echo "Build complete"
+          echo "Build + submit complete"
           echo "Checking for AAB artifact..."
           find . -name "*.aab" -o -name "*.apk" | head -5
