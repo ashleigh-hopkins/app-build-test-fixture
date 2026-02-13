@@ -1,9 +1,11 @@
-name: Test OTA Export
+name: Test OTA Export + Deploy
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
+
+permissions:
+  pages: write
+  id-token: write
 
 jobs:
   ota-export:
@@ -18,10 +20,21 @@ jobs:
         with:
           platform: android
           ota: 'true'
+          node-version: '22'
           cache: 'false'
 
-      - name: Verify export output
-        run: |
-          echo "OTA export complete"
-          echo "Checking dist/ contents..."
-          find dist/ -type f 2>/dev/null | head -10 || echo "No dist/ directory found"
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
+
+  deploy:
+    needs: ota-export
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
