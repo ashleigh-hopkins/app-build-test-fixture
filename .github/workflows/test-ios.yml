@@ -1,0 +1,38 @@
+name: Test iOS Build + Submit
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - name: Checkout fixture app
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history needed for git-commit-count
+
+      - name: Build + Submit iOS
+        uses: ashleigh-hopkins/app-build@main
+        with:
+          platform: ios
+          profile: production
+          submit: 'true'
+          version-bump: 'true'
+          version-strategy: 'git-commit-count'
+          xcode-version: '26'
+          cache: 'false'
+          ios-certificate-p12: ${{ secrets.IOS_CERTIFICATE_P12 }}
+          ios-certificate-password: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
+          ios-provisioning-profile: ${{ secrets.IOS_PROVISIONING_PROFILE }}
+          ios-extension-profiles: '{"com.appbuild.testfixture.widget": "${{ secrets.IOS_WIDGET_PROFILE }}"}'
+          asc-api-key-id: ${{ secrets.ASC_API_KEY_ID }}
+          asc-api-issuer-id: ${{ secrets.ASC_API_ISSUER_ID }}
+          asc-api-key-p8: ${{ secrets.ASC_API_KEY_P8 }}
+
+      - name: Verify build output
+        run: |
+          echo "Build + submit complete"
+          echo "Checking for IPA artifact..."
+          find . -name "*.ipa" -o -name "*.app" | head -5

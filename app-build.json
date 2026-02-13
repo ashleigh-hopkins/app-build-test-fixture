@@ -1,0 +1,56 @@
+{
+  "build": {
+    "development": {
+      "ios": {
+        "scheme": "AppBuildTestFixture",
+        "buildConfiguration": "Debug",
+        "exportMethod": "development"
+      },
+      "android": {
+        "buildType": "debug"
+      }
+    },
+    "production": {
+      "ios": {
+        "scheme": "AppBuildTestFixture",
+        "buildConfiguration": "Release",
+        "exportMethod": "app-store"
+      },
+      "android": {
+        "buildType": "release",
+        "aab": true
+      }
+    }
+  },
+  "submit": {
+    "ios": {
+      "ascAppId": "0000000000"
+    },
+    "android": {
+      "packageName": "com.appbuild.testfixture",
+      "track": "internal"
+    }
+  },
+  "signing": {
+    "ios": {
+      "method": "manual"
+    },
+    "android": {
+      "method": "manual"
+    }
+  },
+  "updates": {
+    "enabled": true,
+    "url": "https://updates.example.com/api/manifest",
+    "storage": {
+      "type": "s3",
+      "bucket": "test-bucket",
+      "region": "us-east-1",
+      "prefix": "updates/"
+    }
+  },
+  "version": {
+    "autoIncrement": true,
+    "source": "app.json"
+  }
+}

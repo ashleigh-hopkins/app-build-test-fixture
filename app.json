@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "AppBuildTestFixture",
+    "slug": "app-build-test-fixture",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.appbuild.testfixture",
+      "buildNumber": "1",
+      "appleTeamId": "3N7576PTNR"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.appbuild.testfixture",
+      "versionCode": 1
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://updates.example.com/api/manifest",
+      "enabled": true
+    },
+    "plugins": [
+      "@bacons/apple-targets"
+    ]
+  }
+}

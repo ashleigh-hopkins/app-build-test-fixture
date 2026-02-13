@@ -1,0 +1,27 @@
+name: Test OTA Export
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ota-export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout fixture app
+        uses: actions/checkout@v4
+
+      - name: OTA Export (Android)
+        uses: ashleigh-hopkins/app-build@main
+        with:
+          platform: android
+          ota: 'true'
+          cache: 'false'
+
+      - name: Verify export output
+        run: |
+          echo "OTA export complete"
+          echo "Checking dist/ contents..."
+          find dist/ -type f 2>/dev/null | head -10 || echo "No dist/ directory found"
