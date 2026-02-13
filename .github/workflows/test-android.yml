@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout fixture app
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history needed for git-commit-count
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -25,6 +27,7 @@ jobs:
           submit: 'true'
           version-bump: 'true'
           version-strategy: 'git-commit-count'
+          node-version: '22'
           cache: 'false'
           android-keystore: ${{ secrets.ANDROID_KEYSTORE }}
           android-keystore-password: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
