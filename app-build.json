@@ -41,13 +41,7 @@
   },
   "updates": {
     "enabled": true,
-    "url": "https://updates.example.com/api/manifest",
-    "storage": {
-      "type": "s3",
-      "bucket": "test-bucket",
-      "region": "us-east-1",
-      "prefix": "updates/"
-    }
+    "url": "https://ashleigh-hopkins.github.io/app-build-test-fixture"
   },
   "version": {
     "autoIncrement": true,
