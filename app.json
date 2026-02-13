@@ -33,7 +33,7 @@
     },
     "runtimeVersion": "1.0.0",
     "updates": {
-      "url": "https://ashleigh-hopkins.github.io/app-build-test-fixture/manifest.json",
+      "url": "https://ashleigh-hopkins.github.io/app-build-test-fixture/android/manifest.json",
       "enabled": true
     },
     "plugins": [

@@ -23,6 +23,19 @@ jobs:
           node-version: '22'
           cache: 'false'
 
+      - name: OTA Export (iOS)
+        uses: ashleigh-hopkins/app-build@main
+        with:
+          platform: ios
+          ota: 'true'
+          node-version: '22'
+          cache: 'false'
+
+      - name: List exported files
+        run: |
+          echo "=== dist/ structure ==="
+          find dist/ -type f | head -20
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
