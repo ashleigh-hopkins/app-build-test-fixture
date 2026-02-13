@@ -22,6 +22,7 @@ jobs:
           version-bump: 'true'
           version-strategy: 'git-commit-count'
           xcode-version: '26'
+          node-version: '22'
           cache: 'false'
           ios-certificate-p12: ${{ secrets.IOS_CERTIFICATE_P12 }}
           ios-certificate-password: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
