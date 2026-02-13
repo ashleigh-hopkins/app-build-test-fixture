@@ -33,7 +33,7 @@
     },
     "runtimeVersion": "1.0.0",
     "updates": {
-      "url": "https://updates.example.com/api/manifest",
+      "url": "https://ashleigh-hopkins.github.io/app-build-test-fixture",
       "enabled": true
     },
     "plugins": [
