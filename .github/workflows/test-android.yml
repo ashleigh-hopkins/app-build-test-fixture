@@ -29,6 +29,7 @@ jobs:
           version-strategy: 'git-commit-count'
           node-version: '22'
           cache: 'false'
+          environment: '{"OTA_BASE_URL": "https://ashleigh-hopkins.github.io/app-build-test-fixture/android/manifest.json"}'
           android-keystore: ${{ secrets.ANDROID_KEYSTORE }}
           android-keystore-password: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           android-key-alias: ${{ secrets.ANDROID_KEY_ALIAS }}

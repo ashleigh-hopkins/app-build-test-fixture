@@ -24,6 +24,7 @@ jobs:
           xcode-version: '26'
           node-version: '22'
           cache: 'false'
+          environment: '{"OTA_BASE_URL": "https://ashleigh-hopkins.github.io/app-build-test-fixture/ios/manifest.json"}'
           ios-certificate-p12: ${{ secrets.IOS_CERTIFICATE_P12 }}
           ios-certificate-password: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
           ios-provisioning-profile: ${{ secrets.IOS_PROVISIONING_PROFILE }}
