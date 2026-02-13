@@ -41,7 +41,7 @@
   },
   "updates": {
     "enabled": true,
-    "url": "https://ashleigh-hopkins.github.io/app-build-test-fixture/manifest.json"
+    "url": "https://ashleigh-hopkins.github.io/app-build-test-fixture"
   },
   "version": {
     "autoIncrement": true,
