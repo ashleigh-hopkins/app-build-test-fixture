@@ -20,7 +20,7 @@ jobs:
           java-version: '17'
 
       - name: Build + Submit Android
-        uses: ashleigh-hopkins/app-build@main
+        uses: sureflapltd/app-build@main
         with:
           platform: android
           profile: production

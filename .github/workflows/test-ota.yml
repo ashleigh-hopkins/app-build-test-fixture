@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: OTA Export (Android)
-        uses: ashleigh-hopkins/app-build@main
+        uses: sureflapltd/app-build@main
         with:
           platform: android
           ota: 'true'

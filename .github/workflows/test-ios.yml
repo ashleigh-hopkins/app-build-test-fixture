@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0  # full history needed for git-commit-count
 
       - name: Build + Submit iOS
-        uses: ashleigh-hopkins/app-build@main
+        uses: sureflapltd/app-build@main
         with:
           platform: ios
           profile: production
