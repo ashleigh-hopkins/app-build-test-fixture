@@ -24,7 +24,7 @@ jobs:
           cache: 'false'
 
       - name: OTA Export (iOS)
-        uses: ashleigh-hopkins/app-build@main
+        uses: sureflapltd/app-build@main
         with:
           platform: ios
           ota: 'true'
